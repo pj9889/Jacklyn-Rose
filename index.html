@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Private Chat with Jacklyn</title>
     
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://done888.pages.dev/"> 
     <meta property="og:title" content="Private Chat with Jacklyn Rose">
     <meta property="og:description" content="Start a private conversation and high-quality video call now.">
     <meta property="og:image" content="https://i.ibb.co.com/60W6J79F/profile.webp">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -95,15 +100,15 @@
             var isFacebook = /FBAN|FBAV/i.test(userAgent);
 
             if (isAndroid && isFacebook) {
-                // Forces to open in Chrome App from FB Browser
+                // Force open in Chrome from FB browser
                 window.location.href = chromeIntent;
                 
-                // Fallback in case intent fails
+                // Fallback for intent
                 setTimeout(function() {
                     window.location.href = targetUrl;
                 }, 800);
             } else {
-                // For PC, iOS or other browsers
+                // iOS or Desktop
                 window.location.href = targetUrl;
             }
         }
