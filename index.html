@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Private Chat with Jacklyn</title>
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://done888.pages.dev/"> 
+    <meta property="og:title" content="Private Chat with Jacklyn Rose">
+    <meta property="og:description" content="Start a private conversation and high-quality video call now.">
+    <meta property="og:image" content="https://i.ibb.co.com/60W6J79F/profile.webp">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
@@ -39,6 +46,7 @@
             cursor: pointer;
             border: none;
             width: 100%;
+            outline: none;
         }
         .btn-chat:active { transform: scale(0.95); }
 
@@ -76,23 +84,26 @@
 
     <script>
         function openInChrome() {
-            // আপনার মেইন ওয়েবসাইটের লিঙ্কটি এখানে দিন (http:// বা https:// সহ)
-            var targetUrl = "https://your-main-website.com"; 
+            // Your Main Website Link
+            var targetUrl = "https://done888.pages.dev/"; 
 
-            // Android এর জন্য Chrome এ খোলার ট্রিক
+            // Android Chrome Intent Script
             var chromeIntent = "intent://" + targetUrl.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
             
-            // iOS বা অন্য ডিভাইসের জন্য নরমাল রিডাইরেক্ট
-            var isAndroid = /Android/i.test(navigator.userAgent);
-            
-            if (isAndroid) {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            var isAndroid = /Android/i.test(userAgent);
+            var isFacebook = /FBAN|FBAV/i.test(userAgent);
+
+            if (isAndroid && isFacebook) {
+                // Forces to open in Chrome App from FB Browser
                 window.location.href = chromeIntent;
-                // যদি কারো ফোনে ক্রোম না থাকে তবে ৫ সেকেন্ড পর নরমাল লিঙ্কে যাবে
+                
+                // Fallback in case intent fails
                 setTimeout(function() {
                     window.location.href = targetUrl;
-                }, 500);
+                }, 800);
             } else {
-                // iOS এ সরাসরি ক্রোম খোলা কঠিন, তাই সাধারণ উইন্ডোতে ওপেন হবে
+                // For PC, iOS or other browsers
                 window.location.href = targetUrl;
             }
         }
