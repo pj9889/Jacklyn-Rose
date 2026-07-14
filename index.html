@@ -58,20 +58,14 @@
             background: transparent; /* ভিডিওর আলো একটুও কমবে না */
         }
 
-        /* সাইজ ছোট ও প্রিমিয়াম করা লোকান্তো ব্র্যান্ডিং */
-        .locanto-branding {
-            font-size: 32px; 
-            font-weight: 800;
-            letter-spacing: 1px;
+        /* নতুন লোগো ব্যানার স্টাইল */
+        .logo-banner {
+            max-width: 450px; /* ব্যানার সাইজ কন্ট্রোল করার জন্য */
+            width: 90%;       /* মোবাইল ফ্রেন্ডলি রেসপন্সিভ করার জন্য */
+            height: auto;
             margin-bottom: 25px;
-            /* text-transform: uppercase; এটি সরিয়ে দেওয়া হয়েছে যাতে ছোট-বড় অক্ষর ঠিক থাকে */
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+            filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.7));
         }
-
-        /* স্পেসিফিক কালার কোড */
-        .deep-blue { color: #0033cc; }
-        .lite-orange { color: #ffb366; }
-        .deep-orange { color: #ff5500; }
 
         /* মেইন হেডলাইন টেক্সট */
         .headline {
@@ -178,10 +172,8 @@
     <!-- মেইন কন্টেন্ট এরিয়া -->
     <div class="content-overlay">
         
-        <!-- আপনার কাঙ্ক্ষিত "Locanto" স্টাইল -->
-        <div class="locanto-branding">
-            <span class="deep-blue">Lo</span><span class="lite-orange">can</span><span class="deep-orange">to</span>
-        </div>
+        <!-- Locanto লেখার বদলে ব্যানার সাইজের লোগো পিকচার -->
+        <img src="bb1x.webp" alt="Logo Banner" class="logo-banner">
 
         <!-- প্রধান অফার টেক্সট -->
         <div class="headline">
