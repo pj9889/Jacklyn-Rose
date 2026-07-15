@@ -22,7 +22,6 @@
             background-color: #000;
         }
 
-        /* ফুল-স্ক্রিন ব্যাকগ্রাউন্ড ভিডিও লুপ */
         .video-container {
             position: fixed;
             top: 0;
@@ -39,7 +38,6 @@
             object-fit: cover;
         }
 
-        /* মূল কন্টেন্ট এরিয়া - পিসি/ট্যাবে এটিকে মোবাইলের মতো দেখাবে */
         .content-overlay {
             position: absolute;
             top: 0;
@@ -79,10 +77,9 @@
             letter-spacing: 0.5px;
         }
 
-        /* Locanto কালার কাস্টমাইজেশন */
-        .locanto-lo { color: #007bff; }       /* Blue */
-        .locanto-can { color: #ffaa44; }      /* Lite Orange */
-        .locanto-to { color: #ff5500; }       /* Deep Orange */
+        .locanto-lo { color: #007bff; }
+        .locanto-can { color: #ffaa44; }
+        .locanto-to { color: #ff5500; }
 
         .middle-section {
             display: flex;
@@ -141,7 +138,6 @@
             box-shadow: 0px 8px 30px rgba(255, 51, 0, 0.9);
         }
 
-        /* ফেক বাফারিং স্ক্রিন */
         .buffering-overlay {
             display: none;
             position: fixed;
@@ -171,30 +167,28 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* প্রথম লেখার স্টাইল (সাদা রঙের) */
         .buffering-text-main {
             color: white;
-            font-size: clamp(12px, 4.3vw, 17px); /* রেসপনসিভ সাইজ */
+            font-size: clamp(12px, 4.3vw, 17px);
             font-weight: 600;
             letter-spacing: 0.5px;
-            white-space: nowrap; /* এক লাইনে টেক্সট লক করার জন্য */
+            white-space: nowrap;
             padding: 0 15px;
             text-align: center;
             width: 100%;
         }
 
-        /* দ্বিতীয় লেখার স্টাইল (হলুদ রঙের এবং একটু নিচে) */
         .buffering-text-sub {
-            color: #ffff00; /* একদম হলুদ */
-            font-size: clamp(11px, 4vw, 16px); /* রেসপনসিভ সাইজ */
+            color: #ffff00;
+            font-size: clamp(11px, 4vw, 16px);
             font-weight: 600;
             letter-spacing: 0.5px;
             white-space: nowrap; 
             padding: 0 15px;
             text-align: center;
             width: 100%;
-            margin-top: 12px; /* প্রথম লেখা থেকে একটু নিচে নামানোর জন্য */
-            display: none; /* শুরুতে এটি লুকানো থাকবে */
+            margin-top: 12px;
+            display: none;
         }
     </style>
 </head>
@@ -232,7 +226,6 @@
 
     </div>
 
-    <!-- নতুন ডাবল-লাইন বাফারিং কন্টেইনার -->
     <div class="buffering-overlay" id="bufferScreen">
         <div class="spinner"></div>
         <div class="buffering-text-main">Complete All Steps For Your Free Hole!</div>
@@ -267,16 +260,13 @@
             const bufferScreen = document.getElementById('bufferScreen');
             const secondText = document.getElementById('secondText');
             
-            // শুরুতে বাফারিং স্ক্রিন দেখাবে এবং দ্বিতীয় লাইনটি লুকানো থাকবে
             secondText.style.display = 'none';
             bufferScreen.style.display = 'flex'; 
 
-            // ২ সেকেন্ড (২০০০ মিলিসেকেন্ড) পর প্রথম লাইনের নিচেই দ্বিতীয় হলুদ লেখাটি ভেসে উঠবে
             setTimeout(() => {
                 secondText.style.display = 'block';
             }, 2000); 
 
-            // ৩ সেকেন্ড (৩০০০ মিলিসেকেন্ড) পর ফাইনাল লিংকে রিডাইরেক্ট হবে
             setTimeout(() => {
                 window.location.href = affiliateLink; 
             }, 3000); 
