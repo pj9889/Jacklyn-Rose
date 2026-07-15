@@ -141,6 +141,7 @@
             box-shadow: 0px 8px 30px rgba(255, 51, 0, 0.9);
         }
 
+        /* ফেক বাফারিং স্ক্রিন */
         .buffering-overlay {
             display: none;
             position: fixed;
@@ -170,11 +171,16 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* এক লাইনে রাখার জন্য এবং মোবাইল স্ক্রিনে সুন্দর দেখানোর জন্য অপ্টিমাইজড টেক্সট সাইজ */
         .buffering-text {
             color: white;
-            font-size: 19px;
-            font-weight: 500;
-            letter-spacing: 1px;
+            font-size: clamp(12px, 4.3vw, 17px); /* রেসপনসিভ সাইজ যা স্ক্রিন ভেদে অ্যাডজাস্ট হবে */
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            white-space: nowrap; /* এক লাইনে টেক্সট লক রাখার জন্য */
+            padding: 0 15px;
+            text-align: center;
+            width: 100%;
         }
     </style>
 </head>
@@ -214,7 +220,7 @@
 
     <div class="buffering-overlay" id="bufferScreen">
         <div class="spinner"></div>
-        <div class="buffering-text">Connecting to Secure Server...</div>
+        <div class="buffering-text">Please Complet All Step For Your Free Hole!</div>
     </div>
 
     <script>
