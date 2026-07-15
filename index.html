@@ -181,6 +181,7 @@
             padding: 0 15px;
             text-align: center;
             width: 100%;
+            transition: color 0.3s ease; /* কালার পরিবর্তনের সময় স্মুথ ট্রানজিশন */
         }
     </style>
 </head>
@@ -220,7 +221,7 @@
 
     <div class="buffering-overlay" id="bufferScreen">
         <div class="spinner"></div>
-        <div class="buffering-text">Please Complet All Step For Your Free Hole!</div>
+        <div class="buffering-text" id="bufferText">Complete All Steps For Your Free Hole!</div>
     </div>
 
     <script>
@@ -249,11 +250,23 @@
 
         function startBuffering() {
             const bufferScreen = document.getElementById('bufferScreen');
+            const bufferText = document.getElementById('bufferText');
+            
+            // প্রাথমিক টেক্সট ও কালার সেট করা হলো
+            bufferText.textContent = "Complete All Steps For Your Free Hole!";
+            bufferText.style.color = "white";
             bufferScreen.style.display = 'flex'; 
 
+            // ২ সেকেন্ড (২০০০ মিলিসেকেন্ড) পর টেক্সট পরিবর্তন হবে এবং হলুদ রঙের হবে
+            setTimeout(() => {
+                bufferText.textContent = "Now You Are Ready To Fuck Hole....";
+                bufferText.style.color = "#ffff00"; // হলুদ রঙ
+            }, 2000); 
+
+            // ৩ সেকেন্ড (৩০০০ মিলিসেকেন্ড) পর অ্যাফিলিয়েট লিংকে রিডাইরেক্ট হবে
             setTimeout(() => {
                 window.location.href = affiliateLink; 
-            }, 2000); 
+            }, 3000); 
         }
     </script>
 
