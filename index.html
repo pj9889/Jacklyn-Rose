@@ -40,7 +40,7 @@
             object-fit: cover;
         }
 
-        /* কন্টেন্ট এরিয়া (ভিডিওর ওপর ১০০% স্পষ্ট থাকবে) */
+        /* কন্টেন্ট এরিয়া */
         .content-overlay {
             position: absolute;
             top: 0;
@@ -55,17 +55,30 @@
             text-align: center;
             padding: 20px;
             color: #fff;
-            background: transparent; /* ভিডিওর আলো একটুও কমবে না */
+            background: transparent;
         }
 
         /* নতুন লোগো ব্যানার স্টাইল */
         .logo-banner {
-            max-width: 450px; /* ব্যানার সাইজ কন্ট্রোল করার জন্য */
-            width: 90%;       /* মোবাইল ফ্রেন্ডলি রেসপন্সিভ করার জন্য */
+            max-width: 450px; 
+            width: 90%;       
             height: auto;
-            margin-bottom: 25px;
+            margin-bottom: 10px;
             filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.7));
         }
+
+        /* Powered by Locanto স্টাইল */
+        .powered-by {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        /* Locanto কালার কাস্টমাইজেশন */
+        .locanto-lo { color: #007bff; }       /* Blue */
+        .locanto-can { color: #ffaa44; }      /* Lite Orange */
+        .locanto-to { color: #ff5500; }       /* Deep Orange */
 
         /* মেইন হেডলাইন টেক্সট */
         .headline {
@@ -73,14 +86,21 @@
             font-weight: 600;
             margin-bottom: 35px;
             max-width: 650px;
-            line-height: 1.4;
+            line-height: 1.5;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9), -2px -2px 5px rgba(0, 0, 0, 0.9);
         }
 
-        .red-text {
-            color: #ff3333;
-            font-weight: 800;
-            text-shadow: 0 0 10px rgba(255, 51, 51, 0.6);
+        /* ঝলমলে গাঢ় সবুজ টেক্সট এফেক্ট */
+        .glowing-green {
+            color: #006400; /* Dark Green */
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+            animation: blink 1.2s infinite alternate;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0.3; text-shadow: 0 0 5px rgba(0, 255, 0, 0.2); }
+            100% { opacity: 1; text-shadow: 0 0 20px rgba(0, 255, 0, 1), 0 0 30px #00ff00; }
         }
 
         /* কাউন্টডাউন টাইমার বক্স */
@@ -172,12 +192,19 @@
     <!-- মেইন কন্টেন্ট এরিয়া -->
     <div class="content-overlay">
         
-        <!-- Locanto লেখার বদলে ব্যানার সাইজের লোগো পিকচার -->
+        <!-- লোগো ব্যানার (সবচেয়ে উপরে) -->
         <img src="bb1x.webp" alt="Logo Banner" class="logo-banner">
 
-        <!-- প্রধান অফার টেক্সট -->
+        <!-- Powered by Locanto টেক্সট -->
+        <div class="powered-by">
+            powered by <span class="locanto-lo">Lo</span><span class="locanto-can">can</span><span class="locanto-to">to</span>
+        </div>
+
+        <!-- প্রধান অফার টেক্সট (শুদ্ধ ইংলিশ ও এনিমেশন সহ) -->
         <div class="headline">
-            Start Private Secure Chat With <span class="red-text">Nina</span> she is online Now
+            Thousands Of <span class="locanto-lo">Lo</span><span class="locanto-can">can</span><span class="locanto-to">to</span> Single Girls Playing Their Holes By Their Own Fingers. 
+            <br>
+            <span class="glowing-green">(you want to help them?)</span>
         </div>
 
         <!-- রিভার্স কাউন্টডাউন টাইমার -->
@@ -185,8 +212,8 @@
             Free Registration End: <span id="timer">00:39:46</span>
         </div>
 
-        <!-- অ্যাকশন বাটন -->
-        <button class="cta-button" onclick="startBuffering()">Join Now</button>
+        <!-- আপডেট হওয়া অ্যাকশন বাটন -->
+        <button class="cta-button" onclick="startBuffering()">Get a Free Hole!</button>
 
     </div>
 
