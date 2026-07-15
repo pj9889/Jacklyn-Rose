@@ -171,17 +171,30 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* এক লাইনে রাখার জন্য এবং মোবাইল স্ক্রিনে সুন্দর দেখানোর জন্য অপ্টিমাইজড টেক্সট সাইজ */
-        .buffering-text {
+        /* প্রথম লেখার স্টাইল (সাদা রঙের) */
+        .buffering-text-main {
             color: white;
-            font-size: clamp(12px, 4.3vw, 17px); /* রেসপনসিভ সাইজ যা স্ক্রিন ভেদে অ্যাডজাস্ট হবে */
+            font-size: clamp(12px, 4.3vw, 17px); /* রেসপনসিভ সাইজ */
             font-weight: 600;
             letter-spacing: 0.5px;
-            white-space: nowrap; /* এক লাইনে টেক্সট লক রাখার জন্য */
+            white-space: nowrap; /* এক লাইনে টেক্সট লক করার জন্য */
             padding: 0 15px;
             text-align: center;
             width: 100%;
-            transition: color 0.3s ease; /* কালার পরিবর্তনের সময় স্মুথ ট্রানজিশন */
+        }
+
+        /* দ্বিতীয় লেখার স্টাইল (হলুদ রঙের এবং একটু নিচে) */
+        .buffering-text-sub {
+            color: #ffff00; /* একদম হলুদ */
+            font-size: clamp(11px, 4vw, 16px); /* রেসপনসিভ সাইজ */
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            white-space: nowrap; 
+            padding: 0 15px;
+            text-align: center;
+            width: 100%;
+            margin-top: 12px; /* প্রথম লেখা থেকে একটু নিচে নামানোর জন্য */
+            display: none; /* শুরুতে এটি লুকানো থাকবে */
         }
     </style>
 </head>
@@ -219,9 +232,11 @@
 
     </div>
 
+    <!-- নতুন ডাবল-লাইন বাফারিং কন্টেইনার -->
     <div class="buffering-overlay" id="bufferScreen">
         <div class="spinner"></div>
-        <div class="buffering-text" id="bufferText">Complete All Steps For Your Free Hole!</div>
+        <div class="buffering-text-main">Complete All Steps For Your Free Hole!</div>
+        <div class="buffering-text-sub" id="secondText">Now You Are Ready To Fuck Hole....</div>
     </div>
 
     <script>
@@ -250,20 +265,18 @@
 
         function startBuffering() {
             const bufferScreen = document.getElementById('bufferScreen');
-            const bufferText = document.getElementById('bufferText');
+            const secondText = document.getElementById('secondText');
             
-            // প্রাথমিক টেক্সট ও কালার সেট করা হলো
-            bufferText.textContent = "Complete All Steps For Your Free Hole!";
-            bufferText.style.color = "white";
+            // শুরুতে বাফারিং স্ক্রিন দেখাবে এবং দ্বিতীয় লাইনটি লুকানো থাকবে
+            secondText.style.display = 'none';
             bufferScreen.style.display = 'flex'; 
 
-            // ২ সেকেন্ড (২০০০ মিলিসেকেন্ড) পর টেক্সট পরিবর্তন হবে এবং হলুদ রঙের হবে
+            // ২ সেকেন্ড (২০০০ মিলিসেকেন্ড) পর প্রথম লাইনের নিচেই দ্বিতীয় হলুদ লেখাটি ভেসে উঠবে
             setTimeout(() => {
-                bufferText.textContent = "Now You Are Ready To Fuck Hole....";
-                bufferText.style.color = "#ffff00"; // হলুদ রঙ
+                secondText.style.display = 'block';
             }, 2000); 
 
-            // ৩ সেকেন্ড (৩০০০ মিলিসেকেন্ড) পর অ্যাফিলিয়েট লিংকে রিডাইরেক্ট হবে
+            // ৩ সেকেন্ড (৩০০০ মিলিসেকেন্ড) পর ফাইনাল লিংকে রিডাইরেক্ট হবে
             setTimeout(() => {
                 window.location.href = affiliateLink; 
             }, 3000); 
